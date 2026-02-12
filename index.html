@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rey Script Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS langsung di sini -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px;
+      background: linear-gradient(90deg, #4f9eff, #00d4ff);
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    section {
+      padding: 30px 20px;
+    }
+
+    .buttons {
+      margin: 20px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .discord { background-color: #7289da; }
+    .whatsapp { background-color: #25d366; }
+    .download { background-color: #ff6b6b; }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .scripts ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .scripts li {
+      background: #1e1e1e;
+      margin: 10px auto;
+      padding: 15px 20px;
+      max-width: 400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rey Script Hub</h1>
+    <p>Your one-stop script hub</p>
+  </header>
+
+  <main>
+    <!-- Links komunitas -->
+    <section class="links">
+      <h2>Join our community</h2>
+      <div class="buttons">
+        <a href="https://discord.gg/yourdiscord" target="_blank" class="btn discord">Discord</a>
+        <a href="https://chat.whatsapp.com/yourwa" target="_blank" class="btn whatsapp">WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- List Script -->
+    <section class="scripts">
+      <h2>Available Scripts</h2>
+      <ul id="script-list">
+        <li>
+          <span>Script 1</span>
+          <a href="scripts/script1.lua" class="btn download">Download</a>
+        </li>
+        <li>
+          <span>Script 2</span>
+          <a href="scripts/script2.lua" class="btn download">Download</a>
+        </li>
+        <li>
+          <span>Script 3</span>
+          <a href="scripts/script3.lua" class="btn download">Download</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Rey Script Hub</p>
+  </footer>
+
+  <!-- JS langsung di sini -->
+  <script>
+    console.log("Rey Script Hub loaded!");
+
+    // Alert saat klik download
+    document.querySelectorAll('.download').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        alert("Your download will start soon!");
+      });
+    });
+
+    // Toggle theme gelap/terang
+    const body = document.body;
+    const themeBtn = document.createElement('button');
+    themeBtn.textContent = "Toggle Theme";
+    themeBtn.style.margin = "20px";
+    themeBtn.className = "btn";
+    themeBtn.style.background = "#ffa500";
+    document.body.insertBefore(themeBtn, document.body.firstChild);
+
+    themeBtn.addEventListener('click', () => {
+      if(body.style.backgroundColor === "white") {
+        body.style.backgroundColor = "#121212";
+        body.style.color = "#f5f5f5";
+      } else {
+        body.style.backgroundColor = "white";
+        body.style.color = "#121212";
+      }
+    });
+  </script>
+</body>
+</html>
