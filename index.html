@@ -3,226 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rey Executor Hub</title>
+<title>Rey Network</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
-body{background:#0f0f0f;color:white;}
-
-/* LOADING */
-#loading{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:#0f0f0f;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-  font-size:20px;
-}
-
-/* LOGIN */
-#loginPage{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:#0f0f0f;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  gap:10px;
-  z-index:1500;
-}
-
-input{
-  padding:10px;
-  border-radius:8px;
-  border:none;
-  width:200px;
-}
-
-button{
-  padding:10px 15px;
-  border:none;
-  border-radius:8px;
-  background:#4f9eff;
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#0b0f17;color:white}
 
 /* NAV */
 .nav{
-  padding:15px;
-  background:#141414;
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  padding:20px 40px;
+  background:#111827;
+  position:sticky;
+  top:0;
+}
+.nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-size:14px;
 }
 
-.user{
-  opacity:0.8;
-}
-
-/* SEARCH */
-.search{
-  padding:15px;
+/* HERO */
+.hero{
+  padding:120px 20px;
   text-align:center;
+  background:linear-gradient(120deg,#2563eb,#00c6ff);
 }
+.hero h1{font-size:42px;}
+.hero p{margin-top:10px;opacity:0.9}
 
-.search input{
-  width:80%;
-  max-width:400px;
-}
-
-/* CATEGORY */
-.categories{
+/* SECTION */
+section{
+  padding:80px 20px;
   text-align:center;
-  padding:10px;
-}
-
-.cat-btn{
-  margin:5px;
-  background:#1f1f1f;
 }
 
 /* GRID */
 .grid{
-  padding:20px;
+  margin-top:30px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
 
+/* CARD */
 .card{
-  background:#1a1a1a;
-  padding:15px;
-  border-radius:10px;
+  background:#111827;
+  padding:20px;
+  border-radius:12px;
+  transition:0.2s;
+}
+.card:hover{
+  transform:translateY(-6px);
 }
 
-.card h3{margin-bottom:10px;font-size:16px;}
+/* STATUS */
+.status{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+.badge{
+  padding:10px 15px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+}
+.online{background:#22c55e;}
+.maintenance{background:#f59e0b;}
+.down{background:#ef4444;}
 
-.download{
-  background:#ff6b6b;
-  margin-top:10px;
+/* BUTTON */
+.btn{
   display:inline-block;
+  margin-top:15px;
+  padding:10px 15px;
+  border-radius:10px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
 }
 
-.hidden{display:none;}
+/* FOOTER */
+footer{
+  background:#111827;
+  padding:20px;
+  text-align:center;
+  opacity:0.6;
+}
 </style>
 </head>
 
 <body>
 
-<!-- LOADING -->
-<div id="loading">Loading Executor...</div>
-
-<!-- LOGIN -->
-<div id="loginPage" class="hidden">
-  <h2>Member Login</h2>
-  <input id="username" placeholder="Enter username">
-  <button onclick="login()">Login</button>
+<!-- NAV -->
+<div class="nav">
+  <b>Rey Network</b>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#stats">Stats</a>
+    <a href="#status">Status</a>
+    <a href="#community">Community</a>
+    <a href="#about">About</a>
+  </div>
 </div>
 
-<!-- MAIN -->
-<div id="main" class="hidden">
+<!-- HERO -->
+<div class="hero">
+  <h1>Next Level Script Ecosystem</h1>
+  <p>Professional tools, powerful network & trusted services</p>
+  <a href="#services" class="btn">Explore</a>
+</div>
 
-  <div class="nav">
-    <div>Rey Executor Hub</div>
-    <div class="user">
-      Welcome, <span id="userName"></span>
-      <button onclick="logout()">Logout</button>
+<!-- SERVICES -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Executor System</h3>
+      <p>Stable & high performance environment.</p>
+    </div>
+    <div class="card">
+      <h3>Script Hub</h3>
+      <p>Large collection & fast updates.</p>
+    </div>
+    <div class="card">
+      <h3>Automation</h3>
+      <p>Bot & management systems.</p>
+    </div>
+    <div class="card">
+      <h3>Developer API</h3>
+      <p>Tools for modern creators.</p>
     </div>
   </div>
+</section>
 
-  <!-- SEARCH -->
-  <div class="search">
-    <input id="searchInput" placeholder="Search script...">
+<!-- STATS -->
+<section id="stats">
+  <h2>Network Statistics</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>50K+</h3>
+      <p>Users</p>
+    </div>
+    <div class="card">
+      <h3>99%</h3>
+      <p>Uptime</p>
+    </div>
+    <div class="card">
+      <h3>24/7</h3>
+      <p>Monitoring</p>
+    </div>
   </div>
+</section>
 
-  <!-- CATEGORY -->
-  <div class="categories">
-    <button class="cat-btn" onclick="filterCat('all')">All</button>
-    <button class="cat-btn" onclick="filterCat('farm')">Auto Farm</button>
-    <button class="cat-btn" onclick="filterCat('pvp')">PVP</button>
+<!-- STATUS -->
+<section id="status">
+  <h2>Service Status</h2>
+  <div class="status">
+    <div class="badge online">Executor API - Online</div>
+    <div class="badge online">Database - Online</div>
+    <div class="badge maintenance">Login - Maintenance</div>
   </div>
+</section>
 
-  <!-- SCRIPTS -->
-  <div class="grid" id="scriptGrid"></div>
+<!-- COMMUNITY -->
+<section id="community">
+  <h2>Join Community</h2>
+  <a href="https://discord.gg/yourlink" class="btn">Discord</a>
+  <a href="https://chat.whatsapp.com/yourlink" class="btn">WhatsApp</a>
+</section>
 
-</div>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+  Rey Network builds modern solutions and powerful tools
+  for thousands of users around the world.
+  </p>
+</section>
 
-<script>
-/* FAKE DATABASE */
-const scripts = [
-  {name:"Auto Farm X", cat:"farm"},
-  {name:"Super PVP", cat:"pvp"},
-  {name:"Mega Farm", cat:"farm"}
-];
-
-/* LOADING SIMULATION */
-setTimeout(()=>{
-  document.getElementById("loading").style.display="none";
-
-  const saved = localStorage.getItem("user");
-  if(saved){
-    startApp(saved);
-  }else{
-    document.getElementById("loginPage").classList.remove("hidden");
-  }
-},1500);
-
-/* LOGIN */
-function login(){
-  const user = document.getElementById("username").value;
-  if(!user) return alert("Enter username!");
-  localStorage.setItem("user",user);
-  startApp(user);
-}
-
-function logout(){
-  localStorage.removeItem("user");
-  location.reload();
-}
-
-/* START */
-function startApp(user){
-  document.getElementById("loginPage").classList.add("hidden");
-  document.getElementById("main").classList.remove("hidden");
-  document.getElementById("userName").innerText=user;
-  renderScripts(scripts);
-}
-
-/* RENDER */
-function renderScripts(list){
-  const grid = document.getElementById("scriptGrid");
-  grid.innerHTML="";
-  list.forEach(s=>{
-    grid.innerHTML+=`
-      <div class="card">
-        <h3>${s.name}</h3>
-        <button class="download" onclick="alert('Starting download...')">Download</button>
-      </div>
-    `;
-  });
-}
-
-/* SEARCH */
-document.getElementById("searchInput").addEventListener("input",e=>{
-  const val = e.target.value.toLowerCase();
-  const filtered = scripts.filter(s=>s.name.toLowerCase().includes(val));
-  renderScripts(filtered);
-});
-
-/* CATEGORY */
-function filterCat(cat){
-  if(cat==="all") return renderScripts(scripts);
-  renderScripts(scripts.filter(s=>s.cat===cat));
-}
-</script>
+<footer>
+© 2026 Rey Network
+</footer>
 
 </body>
 </html>
