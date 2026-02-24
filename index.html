@@ -1,100 +1,183 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Script & EXE Hub</title>
+<title>Script Hub</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #0f0f0f;
-        color: #f0f0f0;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        background: #1a1a1a;
-        text-align: center;
-        padding: 30px 20px;
-    }
-    header h1 {
-        color: #00ffff;
-        margin: 0;
-    }
-    section {
-        padding: 20px;
-        max-width: 700px;
-        margin: auto;
-        border-bottom: 1px solid #333;
-    }
-    h2 {
-        color: #ff7f50;
-    }
-    a {
-        color: #00ffff;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    pre {
-        background: #222;
-        padding: 10px;
-        overflow-x: auto;
-        border-radius: 5px;
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        color: #888;
-        font-size: 14px;
-    }
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0b0b0b;
+    color:white;
+}
+
+/* HEADER */
+header {
+    text-align:center;
+    padding:30px;
+    background:#111;
+}
+h1 {
+    color:#00ffff;
+}
+
+/* CONTAINER */
+section {
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+/* BOX */
+.box {
+    background:#141414;
+    padding:15px;
+    margin:15px 0;
+    border-radius:10px;
+    transition:0.2s;
+}
+.box:hover {
+    transform:scale(1.02);
+}
+
+/* LINK */
+a {
+    color:#00ffff;
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:underline;
+}
+
+/* BUTTON */
+button {
+    background:#00ffff;
+    border:none;
+    padding:10px 15px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+/* TERMINAL */
+pre {
+    background:#000;
+    padding:10px;
+    border-radius:6px;
+    color:#00ff88;
+    overflow-x:auto;
+}
+
+/* GRID SCRIPT */
+.grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
     <h1>🌟 Script & EXE Hub</h1>
-    <p>Semua Script, EXE PC/HP, dan Discord server ada di sini!</p>
+    <p>All Scripts, Executors & Support</p>
 </header>
 
 <section>
-    <h2>💻 EXE PC</h2>
-    <ul>
-        <li>Wave → <a href="https://getwave.gg/" target="_blank">https://getwave.gg/</a></li>
-        <li>Xeno → <a href="https://xeno-executor.com/" target="_blank">https://xeno-executor.com/</a></li>
-        <li>Velocity → <a href="https://realvelocity.xyz/" target="_blank">https://realvelocity.xyz/</a></li>
-        <li>Volcano (Paid) → <a href="https://volcanoexecutor.com/" target="_blank">https://volcanoexecutor.com/</a></li>
-    </ul>
+
+<!-- EXE PC -->
+<div class="box">
+<h2>💻 EXE PC</h2>
+<p><a href="https://getwave.gg/" target="_blank">Wave</a></p>
+<p><a href="https://xeno-executor.com/" target="_blank">Xeno</a></p>
+<p><a href="https://realvelocity.xyz/" target="_blank">Velocity</a></p>
+<p><a href="https://volcanoexecutor.com/" target="_blank">Volcano (Paid)</a></p>
+</div>
+
+<!-- EXE HP -->
+<div class="box">
+<h2>📱 EXE HP / Emu</h2>
+<p><a href="https://fluxusz.com/" target="_blank">Fluxusz</a></p>
+<p><a href="https://deltaexploits.gg/" target="_blank">Delta</a></p>
+</div>
+
+<!-- SCRIPT LOADER -->
+<div class="box">
+<h2>📜 Script Loader</h2>
+<pre id="terminalCode"></pre>
+<button id="copyBtn">📋 Copy Script</button>
+</div>
+
+<!-- DISCORD -->
+<div class="box">
+<h2>🌐 Discord / Support</h2>
+<p><a href="https://discord.gg/fluxus" target="_blank">Staff Executor</a></p>
+<p><a href="https://discord.gg/thanhub" target="_blank">Script Hub</a></p>
+<p><a href="https://discord.gg/PSXdVxJS2" target="_blank">Tester</a></p>
+<p><a href="https://executorbesttop.com/" target="_blank">Best Top Executor</a></p>
+</div>
+
+<!-- FREE SCRIPTS -->
+<div class="box">
+<h2>🔥 Free Scripts</h2>
+<div class="grid" id="scriptsGrid"></div>
+</div>
+
 </section>
 
-<section>
-    <h2>📱 EXE HP / Emu</h2>
-    <ul>
-        <li>Fluxusz → <a href="https://fluxusz.com/" target="_blank">https://fluxusz.com/</a></li>
-        <li>Delta → <a href="https://deltaexploits.gg/" target="_blank">https://deltaexploits.gg/</a></li>
-    </ul>
-</section>
+<script>
+// ======================
+// SCRIPT LOADER (EDIT INI)
+// ======================
+const code = `loadstring(game:HttpGet("https://yourlink.com/script.lua"))()`;
 
-<section>
-    <h2>📜 Script Loader</h2>
-    <pre>loadstring(game:HttpGet("RAW_LINK_SCRIPT"))()</pre>
-</section>
+// TYPE EFFECT
+let i = 0;
+function typeWriter() {
+    if (i < code.length) {
+        document.getElementById("terminalCode").innerHTML += code.charAt(i);
+        i++;
+        setTimeout(typeWriter, 15);
+    }
+}
+typeWriter();
 
-<section>
-    <h2>🌐 Discord / Support</h2>
-    <ul>
-        <li>Staff Executor → <a href="https://discord.gg/fluxus" target="_blank">https://discord.gg/fluxus</a></li>
-        <li>Script Hub → <a href="https://discord.gg/thanhub" target="_blank">https://discord.gg/thanhub</a></li>
-        <li>Tester → <a href="https://discord.gg/PSXdVxJS2" target="_blank">https://discord.gg/PSXdVxJS2</a></li>
-        <li>Best Top Executor → <a href="https://executorbesttop.com" target="_blank">https://executorbesttop.com</a></li>
-        <li>Community Group → <a href="https://linkgroup.com" target="_blank">https://linkgroup.com</a></li>
-    </ul>
-</section>
+// COPY BUTTON
+document.getElementById("copyBtn").onclick = () => {
+    navigator.clipboard.writeText(code);
+    alert("Script copied!");
+};
 
-<footer>
-    📝 Semua EXE aman & terupdate | Script loader siap copy-paste | DM staff untuk bug/request
-</footer>
+// ======================
+// AUTO SCRIPT LIST
+// ======================
+const scripts = [
+    {
+        name: "Auto Farm OP",
+        desc: "Fast farming + anti kick"
+    },
+    {
+        name: "Auto Fishing",
+        desc: "No delay fishing"
+    },
+    {
+        name: "Auto Clicker",
+        desc: "Super fast click"
+    }
+];
+
+const container = document.getElementById("scriptsGrid");
+
+scripts.forEach(s => {
+    const div = document.createElement("div");
+    div.className = "box";
+    div.innerHTML = `<b>${s.name}</b><br>${s.desc}`;
+    container.appendChild(div);
+});
+</script>
 
 </body>
 </html>
